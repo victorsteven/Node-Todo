@@ -21,6 +21,14 @@ app.post('/todos', (req, res) => {
     }, err => res.status(400).send(err));
 });
 
+app.get('/todos', (req, res) => {
+    Todo.find().then((todos) => {
+        // res.send(todos) // if we want to pass the array back
+        res.send({todos}) //we are passing the object
+
+    }, e => res.status(400).send(e));
+});
+
 app.listen(3000, () => {
     console.log('Started at port 3000')
 });
