@@ -8,6 +8,7 @@ var {User} = require('./models/User');
 
 
 var app = express();
+const port = process.env.PORT || 3000;
 
 //with the code below, we can send json data to our express app
 app.use(bodyParser.json());
@@ -44,8 +45,8 @@ app.get('/todos/:id', (req, res) => {
     }).catch(e => res.status(400).send())
 })
 
-app.listen(3000, () => {
-    console.log('Started at port 3000')
+app.listen(port, () => {
+    console.log(`Started up at port: ${port}`);
 });
 
 module.exports = {app};
