@@ -206,13 +206,6 @@ describe('PATCH todos/:id', () => {
         .set('x-auth', users[1].tokens[0].token)
         .send({text, completed})
         .expect(404)
-        // .expect((res) => {
-        //     expect(res.body.todo._id).toBe(hexId);
-        //     expect(res.body.todo.text).toBe(text);
-        //     expect(res.body.todo.completed).toBe(completed)
-        //     expect(res.body.todo.completedAt).toBeGreaterThan(2)
-            
-        // })
         .end(done);
     })
 
